@@ -4,15 +4,19 @@ let
   # JSON 파일에서 설정 읽기
   userConfig = builtins.fromJSON (builtins.readFile ./config.json);
 
-  myAliases = {
-      g-a = "git add . && git status";
-      g-s = "git switch";
-      g-c = "git commit -m";
-      g-p = "git push origin";
-    };
+  # myAliases = {
+  #     alias g-a = "git add . && git status";
+  #     g-s = "git switch";
+  #     g-c = "git commit -m";
+  #     g-p = "git push origin";
+  #   };
 
   myEnvVars = ''
       export AWS_PROFILE=default
+      alias g-a="git add . && git status"
+      alias g-s="git switch"
+      alias g-c="git commit -m"
+      alias g-p="git push origin"
     '';
 in
 {
@@ -72,7 +76,6 @@ in
       }
     ];
   
-    shellAliases = myAliases;
     # 추가 zsh 설정
     initExtra = ''
       ${myEnvVars}
