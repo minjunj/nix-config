@@ -17,7 +17,6 @@ in
     curl
     wget
     htop
-    asdf
     helm
     kubectl
     kubectx
@@ -87,7 +86,12 @@ in
   
   # 기본 셸로 zsh 설정
   programs.bash.enable = false;  # bash 설정 비활성화
-  
+
+  programs.asdf = {
+    enable = true;
+    enableZshIntegration = true;  # zsh와 통합
+  };
+
   # Git 설정은 그대로 유지
   programs.git = {
     enable = true;
