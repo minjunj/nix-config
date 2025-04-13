@@ -69,10 +69,6 @@ in
       la = "ls -la";
     };
 
-    sessionVariables = {
-      AWS_PROFILE = "default";  # AWS_PROFILE 환경 변수 설정
-    };
-
     # 추가 zsh 설정
     initExtra = ''
       # Powerlevel10k 즉시 프롬프트 활성화
@@ -151,7 +147,7 @@ in
         typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
         typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
       }
-      export testval="asd"
+      export AWS_PROFILE="default"
       # 원래 옵션 복원
       'builtin' 'unset' 'p10k_config_opts'
       # alias 기능 명시적으로 재활성화
