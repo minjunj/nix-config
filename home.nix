@@ -61,12 +61,18 @@ in
       }
     ];
 
+    shellAliases = {
+      ll = "ls -l";
+      la = "ls -la";
+      g-a = "git add. && git status";
+      g-s = "git switch";
+      g-c = "git commit -m";
+      g-p = "git push origin";
+      # 새로운 alias 추가
+    };
+  
     # 추가 zsh 설정
     initExtra = ''
-      # 기존 설정
-      alias ll='ls -l'
-      alias update='sudo apt update && sudo apt upgrade'
-      
       # Powerlevel10k 즉시 프롬프트 활성화
       if [[ -r "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
