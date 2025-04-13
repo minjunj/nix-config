@@ -81,11 +81,6 @@
           fi
         ''
         + "/bin/apply-config");
-
-        install-vscode = {
-          type = "app";
-          program = toString (installVSCode + "/bin/install-vscode");
-        };
       };
     };
 }
