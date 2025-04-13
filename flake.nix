@@ -2,10 +2,10 @@
   description = "Ubuntu 24.04 Nix 설정";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=b62d2a95c72fb068aecd374a7262b37ed92df82b";
+    home-manager-2411 = {
+      url = "github:nix-community/home-manager?ref=9d3d080aec2a35e05a15cedd281c2384767c2cfe";
+      inputs.nixpkgs.follows = "nixpkgs-nixos-2411";
     };
   };
 
