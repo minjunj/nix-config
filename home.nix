@@ -44,14 +44,37 @@ in
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "sudo" "docker" ];
-      theme = "robbyrussell";  # 또는 다른 테마
-    };
-    
+      theme = "agnoster";
+    };    
+
+    # powerlevel10k 설정
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.fetchFromGitHub {
+          owner = "romkatv";
+          repo = "powerlevel10k";
+          rev = "v1.19.0";  # 최신 버전 또는 원하는 버전
+          sha256 = "sha256-+hzjSbbrXr0w1rGHm6m2oZ6pfmD6UUDBfPd7uMg5l5c=";  # 해시값을 적절히 설정
+        };
+        file = "powerlevel10k.zsh-theme";
+      }
+    ];
+
     # 추가 zsh 설정
     initExtra = ''
-      # 여기에 추가 zsh 설정 입력
+      # 기존 설정
       alias ll='ls -l'
       alias update='sudo apt update && sudo apt upgrade'
+      
+      # Powerlevel10k 설정
+      # p10k 설정 파일을 불러옴
+      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+      
+      # 또는 인라인으로 기본 설정을 제공
+      POWERLEVEL9K_MODE="nerdfont-complete"
+      POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+      POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
     '';
   };
   
