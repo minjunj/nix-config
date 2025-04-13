@@ -61,11 +61,11 @@
           fi
         ''
         + "/bin/apply-config");
-      };
 
-      apps.${system}.install-vscode = {
-        type = "app";
-        program = toString (installVSCode + "/bin/install-vscode");
+        install-vscode = {
+          type = "app";
+          program = toString (installVSCode + "/bin/install-vscode");
+        };
       };
     };
 }
