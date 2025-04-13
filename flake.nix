@@ -55,6 +55,26 @@
             
             echo ""
             echo "새로운 셸을 사용하려면 터미널을 재시작하거나 로그아웃 후 다시 로그인하세요."
+
+            # VS Code 설치 여부 확인
+            if ! command -v code &> /dev/null; then
+              echo ""
+              echo "VS Code가 설치되어 있지 않습니다."
+              read -p "지금 VS Code를 설치하시겠습니까? (y/n): " install_vscode
+              if [[ $install_vscode =~ ^[Yy]$ ]]; then
+                echo ""
+                echo "VS Code 설치를 시작합니다..."
+                # VS Code 설치 스크립트 실행
+                ${installVSCode}/bin/install-vscode
+              else
+                echo ""
+                echo "VS Code 설치를 건너뜁니다."
+                echo "나중에 'nix run .#install-vscode' 명령으로 설치할 수 있습니다."
+              fi
+            else
+              echo ""
+              echo "VS Code가 이미 설치되어 있습니다. 버전: $(code --version | head -n1)"
+            fi
           else
             echo ""
             echo "⚠️ 설정 적용 중 오류가 발생했습니다. 위의 메시지를 확인하세요."
