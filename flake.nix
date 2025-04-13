@@ -5,7 +5,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=b62d2a95c72fb068aecd374a7262b37ed92df82b";
     home-manager-2411 = {
       url = "github:nix-community/home-manager?ref=9d3d080aec2a35e05a15cedd281c2384767c2cfe";
-      inputs.nixpkgs.follows = "nixpkgs-nixos-2411";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
