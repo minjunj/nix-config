@@ -62,6 +62,7 @@ in
     ];
 
     shellAliases = {
+      AWS_PROFILE = "default";
       ll = "ls -l";
       la = "ls -la";
       g-a = "git add. && git status";
