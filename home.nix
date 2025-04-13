@@ -23,7 +23,6 @@ in
     awscli2
     jq
     jwt-cli
-    vscode
     asdf-vm
   ];
 
@@ -104,6 +103,52 @@ in
     enable = true;
     userName = userConfig.gitUserName;
     userEmail = userConfig.gitEmail;
+  };
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+    # # 확장 기능 설치
+    # extensions = with pkgs.vscode-extensions; [
+    #   # 기본 확장 기능
+    #   ms-vscode.cpptools                # C/C++ 지원
+    #   ms-python.python                  # Python 지원
+    #   redhat.java                       # Java 지원
+      
+    #   # 테마와 아이콘
+    #   pkief.material-icon-theme         # 아이콘 테마
+      
+    #   # 도구
+    #   eamodio.gitlens                   # Git 도구
+    #   esbenp.prettier-vscode            # 코드 포맷팅
+      
+    #   # 언어 지원
+    #   hashicorp.terraform               # Terraform
+    #   jnoortheen.nix-ide                # Nix 언어 지원
+    # ];
+    
+    # # 사용자 설정
+    # userSettings = {
+    #   "editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', monospace";
+    #   "editor.fontSize" = 14;
+    #   "editor.tabSize" = 2;
+    #   "editor.renderWhitespace" = "boundary";
+    #   "editor.minimap.enabled" = false;
+    #   "workbench.colorTheme" = "Default Dark+";
+    #   "workbench.iconTheme" = "material-icon-theme";
+    #   "terminal.integrated.fontFamily" = "'MesloLGS NF'";
+    #   "files.autoSave" = "afterDelay";
+    #   "files.autoSaveDelay" = 1000;
+    # };
+    
+    # # 키 바인딩 설정
+    # keybindings = [
+    #   {
+    #     key = "ctrl+/";
+    #     command = "editor.action.commentLine";
+    #     when = "editorTextFocus && !editorReadonly";
+    #   }
+    # ];
   };
 
   dconf.settings = {
