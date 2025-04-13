@@ -1,8 +1,12 @@
 { config, pkgs, lib, ... }:
 
+let
+  # JSON 파일에서 설정 읽기
+  userConfig = builtins.fromJSON (builtins.readFile ./config.json);
+in
 {
-  home.username = "user";
-  home.homeDirectory = "/home/user";
+  home.username = userConfig.username;
+  home.homeDirectory = userConfig.homeDirectory;
   home.stateVersion = "23.11";
 
   # 설치할 패키지들
@@ -12,6 +16,7 @@
     curl
     wget
     htop
+    sudo
   ];
 
   # zsh를 유효한 셸로 등록하는 activation 스크립트
@@ -56,8 +61,8 @@
   # Git 설정은 그대로 유지
   programs.git = {
     enable = true;
-    userName = "minjunj";
-    userEmail = "minjun_jo@gm.gist.ac.kr";
+    userName = userConfig.gitUserName;
+    userEmail = userConfig.gitEmail;
   };
 
   # Home Manager가 자신을 관리하도록 허용
