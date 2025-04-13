@@ -16,7 +16,6 @@ in
     curl
     wget
     htop
-    sudo
   ];
 
   # zsh를 유효한 셸로 등록하는 activation 스크립트
