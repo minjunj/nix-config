@@ -87,6 +87,20 @@ in
     userEmail = userConfig.gitEmail;
   };
 
+  dconf.settings = {
+    # Ubuntu Dock 위치 설정 (left, bottom, right 중 선택)
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      "dock-position" = "BOTTOM";  # BOTTOM, LEFT, RIGHT 중 하나 선택
+      
+      # 추가 독 설정 (옵션)
+      "extend-height" = true;      # 독이 화면 가장자리를 따라 확장되도록 설정
+      "intellihide" = true;        # 창이 독을 가릴 때만 독 숨기기
+      "autohide" = true;           # 자동 숨기기 활성화
+    };
+    
+    # 기타 GNOME 설정도 필요하면 여기에 추가
+  };
+  
   # Home Manager가 자신을 관리하도록 허용
   programs.home-manager.enable = true;
 }
