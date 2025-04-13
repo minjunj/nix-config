@@ -17,7 +17,7 @@
   # zsh 설정
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     
@@ -49,3 +49,6 @@
   # Home Manager가 자신을 관리하도록 허용
   programs.home-manager.enable = true;
 }
+
+
+# zsh 설정 chsh -s $(which zsh)
