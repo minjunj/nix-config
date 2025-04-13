@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = builtins.getEnv "USER";
-  home.homeDirectory = builtins.getEnv "HOME";
+  home.username = "user";
+  home.homeDirectory = "/home/user";
   home.stateVersion = "23.11";
 
   # 설치할 패키지들

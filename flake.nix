@@ -2,25 +2,25 @@
   description = "Ubuntu 24.04 Nix 설정";
 
   inputs = {
-    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=b62d2a95c72fb068aecd374a7262b37ed92df82b";
-    home-manager-2411 = {
-      url = "github:nix-community/home-manager?ref=9d3d080aec2a35e05a15cedd281c2384767c2cfe";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/24.11";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs-unstable, home-manager-2411, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs-unstable {
+      pkgs = import nixpkgs {
         inherit system;
         config = {
           allowUnfree = true;
         };
       };
-      lib = nixpkgs-unstable.lib;
+      lib = nixpkgs.lib;
     in {
-      homeConfigurations.ubuntu = home-manager-2411.lib.homeManagerConfiguration {
+      homeConfigurations.ubuntu = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           ./home.nix
@@ -32,7 +32,7 @@
         program = toString (pkgs.writeShellScriptBin "apply-config" ''
           #!${pkgs.bash}/bin/bash
           echo "Nix 설정을 적용합니다..."
-          ${home-manager-2411.packages.${system}.default}/bin/home-manager switch --flake ${self}#ubuntu
+          ${home-manager.packages.${system}.default}/bin/home-manager switch --flake ${self}#ubuntu
         ''
         + "/bin/apply-config");
       };
