@@ -9,30 +9,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs-unstable, home-manager-2411, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
+      pkgs = import nixpkgs-unstable {
         inherit system;
         config = {
           allowUnfree = true;
         };
       };
-      lib = nixpkgs.lib;
+      lib = nixpkgs-unstable.lib;
     in {
-      homeConfigurations.ubuntu = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.ubuntu = home-manager-2411.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           ./home.nix
         ];
       };
-
+      
       apps.${system}.default = {
         type = "app";
         program = toString (pkgs.writeShellScriptBin "apply-config" ''
           #!${pkgs.bash}/bin/bash
           echo "Nix 설정을 적용합니다..."
-          ${home-manager}/bin/home-manager switch --flake ${self}#ubuntu
+          ${home-manager-2411.packages.${system}.default}/bin/home-manager switch --flake ${self}#ubuntu
         ''
         + "/bin/apply-config");
       };
