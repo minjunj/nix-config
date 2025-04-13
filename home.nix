@@ -60,12 +60,18 @@ in
       }
     ];
   
-    # shellAliases = {
-    #     g-a = "git add . && git status";
-    #     g-s = "git switch";
-    #     g-c = "git commit -m";
-    #     g-p = "git push origin";
-    # };
+    shellAliases = {
+      g-a = "git add . && git status";
+      g-s = "git switch";
+      g-c = "git commit -m";
+      g-p = "git push origin";
+      ll = "ls -l";
+      la = "ls -la";
+    };
+
+    sessionVariables = {
+      AWS_PROFILE = "default";  # AWS_PROFILE 환경 변수 설정
+    };
 
     # 추가 zsh 설정
     initExtra = ''
@@ -145,18 +151,11 @@ in
         typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
         typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
       }
-
+      export testval="asd"
       # 원래 옵션 복원
       'builtin' 'unset' 'p10k_config_opts'
-
-      export AWS_PROFILE="default"
-
-      alias g_a='git add . && git status'
-      alias g_s='git switch'
-      alias g_c='git commit -m'
-      alias g_p='git push origin'
-      alias ll='ls -l'
-      alias la='ls -la'
+      # alias 기능 명시적으로 재활성화
+      'builtin' 'setopt' 'aliases'
     '';
   };
   
