@@ -62,10 +62,10 @@
         ''
         + "/bin/apply-config");
       };
-    };
 
-    apps.${system}.install-vscode = {
+      apps.${system}.install-vscode = {
         type = "app";
         program = toString (installVSCode + "/bin/install-vscode");
+      };
     };
 }
