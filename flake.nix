@@ -29,11 +29,12 @@
 
       apps.${system}.default = {
         type = "app";
-        program = pkgs.writeShellScriptBin "apply-config" ''
+        program = toString (pkgs.writeShellScriptBin "apply-config" ''
+          #!${pkgs.bash}/bin/bash
           echo "Nix 설정을 적용합니다..."
           ${home-manager}/bin/home-manager switch --flake ${self}#ubuntu
         ''
-        + "/bin/bash";
+        + "/bin/apply-config");
       };
     };
 }
