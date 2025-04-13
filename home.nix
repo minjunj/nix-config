@@ -3,6 +3,17 @@
 let
   # JSON 파일에서 설정 읽기
   userConfig = builtins.fromJSON (builtins.readFile ./config.json);
+
+  myAliases = {
+      g-a = "git add . && git status";
+      g-s = "git switch";
+      g-c = "git commit -m";
+      g-p = "git push origin";
+    };
+
+  myEnvVars = ''
+      export AWS_PROFILE=default
+    '';
 in
 {
   home.username = userConfig.username;
@@ -60,20 +71,12 @@ in
         file = "powerlevel10k.zsh-theme";
       }
     ];
-
-    shellAliases = {
-      AWS_PROFILE = "default";
-      ll = "ls -l";
-      la = "ls -la";
-      g-a = "git add. && git status";
-      g-s = "git switch";
-      g-c = "git commit -m";
-      g-p = "git push origin";
-      # 새로운 alias 추가
-    };
   
+    shellAliases = myAliases;
     # 추가 zsh 설정
     initExtra = ''
+      ${myEnvVars}
+
       # Powerlevel10k 즉시 프롬프트 활성화
       if [[ -r "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
