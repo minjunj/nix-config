@@ -19,6 +19,8 @@
         };
       };
       lib = nixpkgs.lib;
+
+      installVSCode = import ./vscode.nix { inherit pkgs; };
     in {
       homeConfigurations.ubuntu = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -60,5 +62,10 @@
         ''
         + "/bin/apply-config");
       };
+    };
+
+    apps.${system}.install-vscode = {
+        type = "app";
+        program = toString (installVSCode + "/bin/install-vscode");
     };
 }
