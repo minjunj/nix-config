@@ -139,7 +139,8 @@ in
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhs;
+    # package = pkgs.vscode.fhs;
+    package = pkgs.vscode;
 
     userSettings = {
       "update.mode" = "none";  # Nix가 관리하므로 자동 업데이트 비활성화
