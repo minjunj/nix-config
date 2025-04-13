@@ -74,7 +74,7 @@ in
 
     # 추가 zsh 설정
     initExtra = ''
-
+      alias ll='ls -la'
       # Powerlevel10k 즉시 프롬프트 활성화
       if [[ -r "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
