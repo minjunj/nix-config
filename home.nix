@@ -96,7 +96,7 @@ in
       "extend-height" = true;      # 독이 화면 가장자리를 따라 확장되도록 설정
       "intellihide" = true;        # 창이 독을 가릴 때만 독 숨기기
       "autohide" = true;           # 자동 숨기기 활성화
-      "pannel-mode" = false;
+      "panel-mode" = false;
     };
     
     # 기타 GNOME 설정도 필요하면 여기에 추가
