@@ -17,6 +17,7 @@ let
       alias g-s='git switch'
       alias g-c='git commit -m'
       alias g-p='git push origin'
+      alias g-pul='git pull'
     '';
 in
 {
