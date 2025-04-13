@@ -23,6 +23,7 @@ in
     awscli2
     jq
     jwt-cli
+    asdf-vm
   ];
 
   # zsh를 유효한 셸로 등록하는 activation 스크립트
@@ -81,16 +82,21 @@ in
     initExtra = ''
       ${powerlevel10k}
       export AWS_PROFILE="default"
+
+      # asdf 로드
+      if [ -e "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh" ]; then
+        . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
+      fi
+      
+      # asdf 자동완성
+      if [ -e "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash" ]; then
+        . "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash"
+      fi
     '';
   };
   
   # 기본 셸로 zsh 설정
   programs.bash.enable = false;  # bash 설정 비활성화
-
-  programs.asdf = {
-    enable = true;
-    enableZshIntegration = true;  # zsh와 통합
-  };
 
   # Git 설정은 그대로 유지
   programs.git = {
