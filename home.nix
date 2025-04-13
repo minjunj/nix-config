@@ -13,9 +13,17 @@ in
   home.packages = with pkgs; [
     git
     vim
+    nettools
     curl
     wget
     htop
+    asdf
+    helm
+    kubectl
+    kubectx
+    awscli2
+    jq
+    jwt-cli
   ];
 
   # zsh를 유효한 셸로 등록하는 activation 스크립트
