@@ -14,6 +14,20 @@
     htop
   ];
 
+  # zsh를 유효한 셸로 등록하는 activation 스크립트
+  home.activation = {
+    addZshToEtcShells = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      ZSH_PATH="$HOME/.nix-profile/bin/zsh"
+      if [ -x "$ZSH_PATH" ] && ! grep -q "$ZSH_PATH" /etc/shells; then
+        echo "zsh 경로를 /etc/shells에 추가하려면 sudo 암호를 입력하세요"
+        echo "$ZSH_PATH" | sudo tee -a /etc/shells
+        echo "zsh가 유효한 셸로 등록되었습니다."
+      else
+        echo "zsh가 이미 /etc/shells에 등록되어 있거나 실행 가능하지 않습니다."
+      fi
+    '';
+  };
+
   # zsh 설정
   programs.zsh = {
     enable = true;
