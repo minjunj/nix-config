@@ -13,10 +13,10 @@ let
 
   myEnvVars = ''
       export AWS_PROFILE=default
-      alias g-a="git add . && git status"
-      alias g-s="git switch"
-      alias g-c="git commit -m"
-      alias g-p="git push origin"
+      alias g-a='git add . && git status'
+      alias g-s='git switch'
+      alias g-c='git commit -m'
+      alias g-p='git push origin'
     '';
 in
 {
