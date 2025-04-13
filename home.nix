@@ -38,6 +38,38 @@ in
         echo "zsh가 이미 /etc/shells에 등록되어 있거나 실행 가능하지 않습니다."
       fi
     '';
+    # VS Code 권한 문제 해결 스크립트 추가
+    fixVsCodePermissions = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      echo "VS Code 권한 및 바로가기 설정 중..."
+      
+      # code 명령어 위치 찾기
+      CODE_PATH=$(readlink -f $(which code 2>/dev/null) || echo "")
+      if [ -n "$CODE_PATH" ]; then
+        # 실행 권한 확인 및 설정
+        chmod +x "$CODE_PATH"
+        
+        # 바로가기 생성
+        mkdir -p $HOME/.local/share/applications
+        cat > $HOME/.local/share/applications/code.desktop << EOF
+  [Desktop Entry]
+  Name=Visual Studio Code
+  Comment=Code Editing. Redefined.
+  GenericName=Text Editor
+  Exec=$CODE_PATH --unity-launch %F
+  Icon=$HOME/.nix-profile/share/vscode/resources/app/resources/linux/code.png
+  Type=Application
+  StartupNotify=true
+  Categories=TextEditor;Development;IDE;
+  MimeType=text/plain;inode/directory;
+  Keywords=vscode;
+  EOF
+        # 바로가기 파일 권한 설정
+        chmod +x $HOME/.local/share/applications/code.desktop
+        echo "VS Code 권한 및 바로가기 설정 완료!"
+      else
+        echo "VS Code 실행 파일을 찾을 수 없습니다."
+    fi
+  '';
   };
 
   # zsh 설정
@@ -108,47 +140,12 @@ in
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;
-    # # 확장 기능 설치
-    # extensions = with pkgs.vscode-extensions; [
-    #   # 기본 확장 기능
-    #   ms-vscode.cpptools                # C/C++ 지원
-    #   ms-python.python                  # Python 지원
-    #   redhat.java                       # Java 지원
-      
-    #   # 테마와 아이콘
-    #   pkief.material-icon-theme         # 아이콘 테마
-      
-    #   # 도구
-    #   eamodio.gitlens                   # Git 도구
-    #   esbenp.prettier-vscode            # 코드 포맷팅
-      
-    #   # 언어 지원
-    #   hashicorp.terraform               # Terraform
-    #   jnoortheen.nix-ide                # Nix 언어 지원
-    # ];
-    
-    # # 사용자 설정
-    # userSettings = {
-    #   "editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', monospace";
-    #   "editor.fontSize" = 14;
-    #   "editor.tabSize" = 2;
-    #   "editor.renderWhitespace" = "boundary";
-    #   "editor.minimap.enabled" = false;
-    #   "workbench.colorTheme" = "Default Dark+";
-    #   "workbench.iconTheme" = "material-icon-theme";
-    #   "terminal.integrated.fontFamily" = "'MesloLGS NF'";
-    #   "files.autoSave" = "afterDelay";
-    #   "files.autoSaveDelay" = 1000;
-    # };
-    
-    # # 키 바인딩 설정
-    # keybindings = [
-    #   {
-    #     key = "ctrl+/";
-    #     command = "editor.action.commentLine";
-    #     when = "editorTextFocus && !editorReadonly";
-    #   }
-    # ];
+
+    userSettings = {
+      "update.mode" = "none";  # Nix가 관리하므로 자동 업데이트 비활성화
+      "extensions.autoUpdate" = false;  # 확장 프로그램 자동 업데이트 비활성화
+      "workbench.colorTheme" = "Default Dark+";
+    };
   };
 
   dconf.settings = {
