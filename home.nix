@@ -23,6 +23,7 @@ in
     awscli2
     jq
     jwt-cli
+    vscode
     asdf-vm
   ];
 
