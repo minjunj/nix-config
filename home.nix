@@ -65,7 +65,6 @@ in
         g-s = "git switch";
         g-c = "git commit -m";
         g-p = "git push origin";
-        ll = "ls -a";
     };
 
     sessionVariables = {
@@ -74,7 +73,6 @@ in
 
     # 추가 zsh 설정
     initExtra = ''
-      alias ll='ls -la'
       # Powerlevel10k 즉시 프롬프트 활성화
       if [[ -r "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
@@ -154,6 +152,8 @@ in
 
       # 원래 옵션 복원
       'builtin' 'unset' 'p10k_config_opts'
+
+      alias ll='ls -la'
     '';
   };
   
