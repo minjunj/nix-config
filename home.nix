@@ -66,6 +66,7 @@ in
       g-s = "git switch";
       g-c = "git commit -m";
       g-p = "git push origin";
+      g-pu = "git pull";
       ll = "ls -l";
       la = "ls -la";
     };
