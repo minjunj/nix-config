@@ -69,6 +69,14 @@ in
 
     # 추가 zsh 설정
     initExtra = ''
+      export AWS_PROFILE="default"
+
+      alias g_a='git add . && git status'
+      alias g_s='git switch'
+      alias g_c='git commit -m'
+      alias g_p='git push origin'
+      alias ll='ls -l'
+      alias la='ls -la'
 
       # Powerlevel10k 즉시 프롬프트 활성화
       if [[ -r "${config.xdg.configHome}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
@@ -149,18 +157,6 @@ in
 
       # 원래 옵션 복원
       'builtin' 'unset' 'p10k_config_opts'
-
-      export AWS_PROFILE = "default"
-
-      # 직접 alias 정의 (문제 해결)
-      alias g_a='git add . && git status'
-      alias g_s='git switch'
-      alias g_c='git commit -m'
-      alias g_p='git push origin'
-      
-      # 가독성을 위해 일반적인 alias 추가
-      alias ll='ls -l'
-      alias la='ls -la'
     '';
   };
   
