@@ -24,14 +24,12 @@
 
   programs.zsh = {
     enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
     syntaxHighlighting.enable = true;
 
     # oh-my-zsh 설정
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" ];
+      plugins = [ "git" "sudo" "docker" "zsh-autosuggestions" ];  # autosuggestions 플러그인 추가
       theme = "";
     };
 
