@@ -25,8 +25,8 @@
   # zsh 설정 활성화
   programs.zsh.enable = true;
 
-  # 시스템 설정이므로 필요한 zsh 설정을 추가할 수 있음
-  users.users.nixos.zshrc = ''
+  # Oh My Zsh 설정 (기본 설정 추가)
+  programs.zsh.zshrc = ''
     export ZSH=$HOME/.oh-my-zsh
     export ZSH_THEME="agnoster"  # 원하는 테마로 설정 가능
   '';
