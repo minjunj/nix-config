@@ -24,28 +24,14 @@
 
   programs.zsh = {
     enable = true;
-    syntaxHighlighting.enable = true;
 
     # oh-my-zsh 설정
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" "zsh-autosuggestions" ];  # autosuggestions 플러그인 추가
+      plugins = [ "git" "sudo" "docker" ];
       theme = "";
     };
 
-    # powerlevel10k 설정
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.fetchFromGitHub {
-          owner = "romkatv";
-          repo = "powerlevel10k";
-          rev = "v1.19.0";
-          sha256 = "sha256-+hzjSbbrXr0w1rGHm6m2oZ6pfmD6UUDBfPd7uMg5l5c=";
-        };
-        file = "powerlevel10k.zsh-theme";
-      }
-    ];
   };
 
   system.stateVersion = "24.11";
