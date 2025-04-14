@@ -22,14 +22,32 @@
     zsh
   ];
 
-  # zsh 설정 활성화
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    
+    # oh-my-zsh 설정
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "sudo" "docker" ];
+      theme = "";
+    };    
 
-  # Oh My Zsh 설정 (기본 설정 추가)
-  programs.zsh.zshrc = ''
-    export ZSH=$HOME/.oh-my-zsh
-    export ZSH_THEME="agnoster"  # 원하는 테마로 설정 가능
-  '';
+    # powerlevel10k 설정
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.fetchFromGitHub {
+          owner = "romkatv";
+          repo = "powerlevel10k";
+          rev = "v1.19.0";
+          sha256 = "sha256-+hzjSbbrXr0w1rGHm6m2oZ6pfmD6UUDBfPd7uMg5l5c=";
+        };
+        file = "powerlevel10k.zsh-theme";
+      }
+    ];
 
   system.stateVersion = "24.11";
 }
