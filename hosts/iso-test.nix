@@ -27,13 +27,13 @@
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    
+
     # oh-my-zsh 설정
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "sudo" "docker" ];
       theme = "";
-    };    
+    };
 
     # powerlevel10k 설정
     plugins = [
@@ -48,6 +48,7 @@
         file = "powerlevel10k.zsh-theme";
       }
     ];
+  };
 
   system.stateVersion = "24.11";
 }
