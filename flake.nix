@@ -15,6 +15,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/iso-test.nix
+            ./hosts/zsh/base.nix
           ];
         };
       in {
