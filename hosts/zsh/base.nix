@@ -4,6 +4,7 @@
   # zsh를 설치
   environment.systemPackages = with pkgs; [
     zsh
+    zsh-powerlevel10k
   ];
 
   programs.zsh = {
@@ -13,7 +14,7 @@
     ohMyZsh = {
       enable = true;
       plugins = [ "git" "sudo" "docker" ];
-      theme = "";
+      theme = "powerlevel10k/powerlevel10k";
     };
   };
 }
