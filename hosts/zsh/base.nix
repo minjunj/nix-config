@@ -10,7 +10,7 @@
     enable = true;
 
     # oh-my-zsh 설정
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       plugins = [ "git" "sudo" "docker" ];
       theme = "";
