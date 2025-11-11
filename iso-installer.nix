@@ -25,4 +25,24 @@
     networkmanager.enable = true;
     wireless.enable = false;
   };
+
+  # nixos 유저를 시스템 유저로 변경 (로그인 불가)
+  users.users.nixos = {
+    isNormalUser = lib.mkForce false;
+    isSystemUser = lib.mkForce true;
+    group = lib.mkForce "nixos";
+  };
+  users.groups.nixos = {};
+
+  # getty 자동 로그인 비활성화
+  services.getty.autologinUser = lib.mkForce null;
+
+  # alice로 자동 로그인
+  services.displayManager.autoLogin = {
+    enable = lib.mkForce true;
+    user = "alice";
+  };
+
+  # sudo 비밀번호 없이 사용
+  security.sudo.wheelNeedsPassword = false;
 }
