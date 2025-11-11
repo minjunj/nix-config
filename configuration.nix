@@ -3,11 +3,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  users.users.alice = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    initialPassword = "test";
-  };
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   environment.systemPackages = with pkgs; [
     cowsay
