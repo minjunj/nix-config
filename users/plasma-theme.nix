@@ -11,8 +11,19 @@
     };
 
     installPhase = ''
+      runHook preInstall
+
+      # Install plasma desktop themes
+      mkdir -p $out/share/plasma/desktoptheme
+      for theme in Apple-BigSur-LLT AppleDark-ALL AppleDark-ALL-AccentDinamic Apple-Ventura; do
+        cp -r "$theme" $out/share/plasma/desktoptheme/
+      done
+
+      # Install look-and-feel
       mkdir -p $out/share/plasma/look-and-feel
-      cp -r look-and-feel/Apple-Ventura-Dark $out/share/plasma/look-and-feel/
+      cp -r look-and-feel/* $out/share/plasma/look-and-feel/
+
+      runHook postInstall
     '';
 
     meta = {
