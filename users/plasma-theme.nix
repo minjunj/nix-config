@@ -6,7 +6,7 @@
     src = pkgs.fetchFromGitHub {
       owner = "zayronxio";
       repo = "Apple-theme-Plasma";
-      rev = "main";
+      rev = "93ed9d35c13d1711e887e6cb4f222063496c28ab";
       hash = "";  # First run will show the correct hash
     };
 
