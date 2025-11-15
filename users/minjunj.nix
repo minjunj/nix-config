@@ -31,6 +31,7 @@
       vim
       wget
       htop
+      google-chrome
     ];
 
     programs = {
