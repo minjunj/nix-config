@@ -42,9 +42,6 @@
       };
       plasma = {
         enable = true;
-        workspace = {
-          lookAndFeel = "Apple-Ventura-Dark";
-        };
       };
     };
 
