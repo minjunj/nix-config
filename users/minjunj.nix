@@ -16,7 +16,6 @@
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
     imports = [
-      ./plasma-theme.nix
       ../theme/plasma-theme.nix
     ];
 
