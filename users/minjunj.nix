@@ -31,22 +31,19 @@
       htop
     ];
 
-    # User programs
-    programs.home-manager.enable = true;
-    programs.git = {
-      ebable = true;
-      userName = "minjunj";
-      userEmail = "minjun_jo@gm.gist.ac.kr";
-    }
-
-    # KDE Plasma configuration
-    programs.plasma = {
-      enable = true;
-
-      # Workspace settings
-      workspace = {
-        lookAndFeel = "org.kde.breezedark.desktop";
-        colorScheme = "BreezeDark";
+    programs = {
+      home-manager.enable = true;
+      git = {
+        enable = true;
+        userName = "minjunj";
+        userEmail = "minjun_jo@gm.gist.ac.kr";
+      };
+      plasma = {
+        enable = true;
+        workspace = {
+          lookAndFeel = "org.kde.breezedark.desktop";
+          colorScheme = "BreezeDark";
+        };
       };
     };
 
