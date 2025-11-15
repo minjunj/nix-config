@@ -23,9 +23,32 @@
 
     imports = [];
 
-    # User packages and programs
+    # User packages
+    home.packages = with pkgs; [
+      curl
+      vim
+      wget
+      htop
+    ];
+
+    # User programs
     programs.home-manager.enable = true;
-    programs.git.enable = true;
+    programs.git = {
+      ebable = true;
+      userName = "minjunj";
+      userEmail = "minjun_jo@gm.gist.ac.kr";
+    }
+
+    # KDE Plasma configuration
+    programs.plasma = {
+      enable = true;
+
+      # Workspace settings
+      workspace = {
+        lookAndFeel = "org.kde.breezedark.desktop";
+        colorScheme = "BreezeDark";
+      };
+    };
 
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
