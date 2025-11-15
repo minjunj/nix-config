@@ -15,7 +15,10 @@
 
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
-    imports = [];
+    imports = [
+      ./plasma-theme.nix
+      ../theme/plasma-theme.nix
+    ];
 
     home = {
       username = "minjunj";
