@@ -32,6 +32,8 @@
       wget
       htop
       google-chrome
+      vscode-fhs # vscode 가상화
+      asdf
     ];
 
     programs = {
