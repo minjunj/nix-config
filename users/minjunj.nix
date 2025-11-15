@@ -15,40 +15,17 @@
 
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
-    imports = [
-      ../theme/plasma-theme.nix
-    ];
-
     home = {
       username = "minjunj";
       homeDirectory = "/home/minjunj";
       stateVersion = "25.05";
     };
 
-    # User packages
-    home.packages = with pkgs; [
-      curl
-      vim
-      wget
-      htop
-      google-chrome
-      vscode-fhs # vscode 가상화
-      asdf
-    ];
-
-    programs = {
-      home-manager.enable = true;
-      git = {
-        enable = true;
-        userName = "minjunj";
-        userEmail = "minjun_jo@gm.gist.ac.kr";
-      };
-      plasma = {
-        enable = true;
-      };
+    # User-specific git configuration
+    programs.git = {
+      enable = true;
+      userName = "minjunj";
+      userEmail = "minjun_jo@gm.gist.ac.kr";
     };
-
-    # Nicely reload system units when changing configs
-    systemd.user.startServices = "sd-switch";
   };
 }
