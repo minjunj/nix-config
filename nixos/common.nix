@@ -32,16 +32,6 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # Common user configuration
-  users.users = {
-    minjunj = {
-      initialPassword = "1234";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [];
-      extraGroups = ["wheel" "networkmanager"];
-    };
-  };
-
   # SSH server configuration
   services.openssh = {
     enable = true;

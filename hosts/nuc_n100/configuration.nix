@@ -10,6 +10,7 @@
     ../../nixos/common.nix
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    ../../users/minjunj.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -19,11 +20,10 @@
   networking.hostName = "nuc_n100";
   networking.networkmanager.enable = true;
 
-  # Integrate home-manager
+  # home-manager configuration
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {inherit inputs;};
-    users.minjunj = import ../../home-manager/home.nix;
   };
 }
