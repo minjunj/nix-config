@@ -15,6 +15,10 @@
 
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
+    imports = [
+      ./plasma-theme.nix
+    ];
+
     home = {
       username = "minjunj";
       homeDirectory = "/home/minjunj";
@@ -39,11 +43,7 @@
       plasma = {
         enable = true;
         workspace = {
-          clickItemTo = "select";
-          lookAndFeel = "org.kde.breezedark.desktop";
-          cursor.theme = "Bibata-Modern-Ice";
-          iconTheme = "Papirus";
-          theme = "breeze light";
+          lookAndFeel = "Apple-Ventura-Dark";
         };
       };
     };
