@@ -21,8 +21,6 @@
       stateVersion = "25.05";
     };
 
-    imports = [];
-
     # User packages
     home.packages = with pkgs; [
       curl
@@ -41,8 +39,10 @@
       plasma = {
         enable = true;
         workspace = {
+          clickItemTo = "select";
           lookAndFeel = "org.kde.breezedark.desktop";
-          colorScheme = "BreezeDark";
+          cursor.theme = "Bibata-Modern-Ice";
+          iconTheme = "Papirus-Dark";
         };
       };
     };
