@@ -50,7 +50,6 @@
   home-manager.sharedModules = [{
     imports = [
       ../theme/plasma-theme.nix
-      ../zsh/aliases.nix
     ];
 
     # Powerlevel10k configuration
@@ -71,9 +70,6 @@
     programs.plasma = {
       enable = true;
     };
-
-    # Enable zsh for home-manager (required for shellAliases to work)
-    programs.zsh.enable = true;
 
     # Enable home-manager
     programs.home-manager.enable = true;
