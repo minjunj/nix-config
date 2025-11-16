@@ -50,6 +50,7 @@
   home-manager.sharedModules = [{
     imports = [
       ../theme/plasma-theme.nix
+      ../zsh/aliases.nix
     ];
 
     # Powerlevel10k configuration
