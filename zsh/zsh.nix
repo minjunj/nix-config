@@ -20,9 +20,9 @@
       g-s = "git status";
       g-a = "git add . && git status";
       g-c = "git commit";
-      g-p = "git push";
-      g-l = "git pull origin";
+      g-p = "git push origin";
       g-d = "git diff";
+      gpl = "git pull origin";
 
       # NixOS specific
       rebuild = "sudo nixos-rebuild switch --flake .";
