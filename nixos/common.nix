@@ -6,6 +6,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./zsh.nix
+  ];
+
   nixpkgs = {
     overlays = [];
     config = {
