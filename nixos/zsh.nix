@@ -16,5 +16,5 @@
       theme = "robbyrussell";
       plugins = [ "git" ];
     };
-  }
+  };
 }
