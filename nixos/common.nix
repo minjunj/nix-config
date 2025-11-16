@@ -72,6 +72,9 @@
       enable = true;
     };
 
+    # Enable zsh for home-manager (required for shellAliases to work)
+    programs.zsh.enable = true;
+
     # Enable home-manager
     programs.home-manager.enable = true;
 
