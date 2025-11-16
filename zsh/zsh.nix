@@ -25,7 +25,7 @@
       gpl = "git pull origin";
 
       # NixOS specific
-      rebuild = "sudo nixos-rebuild switch --flake .";
+      rebuild = "sudo nixos-rebuild switch --flake";
       update = "nix flake update";
     };
     oh-my-zsh = {
