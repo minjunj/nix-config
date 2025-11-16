@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ./zsh.nix
+    "../zsh/zsh.nix"
   ];
 
   nixpkgs = {
@@ -51,6 +51,9 @@
     imports = [
       ../theme/plasma-theme.nix
     ];
+
+    # Powerlevel10k configuration
+    home.file.".p10k.zsh".source = ../zsh/p10k.zsh;
 
     # Common packages for all users
     home.packages = with pkgs; [
