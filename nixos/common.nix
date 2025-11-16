@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    "../zsh/zsh.nix"
+    ../zsh/zsh.nix
   ];
 
   nixpkgs = {
