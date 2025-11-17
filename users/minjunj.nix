@@ -16,7 +16,7 @@
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
     imports = [
-      ../../modules/kvm/fcitx5.nix
+      # ../../modules/kvm/fcitx5.nix
     ];
 
     home = {
