@@ -18,12 +18,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/" =
-    { device = "";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/1337-0872";
       fsType = "vfat";
