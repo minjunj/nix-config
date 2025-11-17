@@ -62,6 +62,7 @@
       wget
       htop
       google-chrome
+      firefox
       vscode-fhs # vscode virtualization
       asdf-vm
     ];
