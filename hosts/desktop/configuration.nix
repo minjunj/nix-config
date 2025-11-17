@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     ../../users/minjunj.nix
+    ../../hardware/nvidia/nvidia.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

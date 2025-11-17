@@ -19,6 +19,14 @@
       username = "minjunj";
       homeDirectory = "/home/minjunj";
       stateVersion = "25.05";
+
+      # NVIDIA GPU environment variables (auto-enabled when nvidia.nix is imported)
+      sessionVariables = lib.mkIf config.hardware.nvidia.modesetting.enable {
+        LIBVA_DRIVER_NAME = "nvidia";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        NVD_BACKEND = "direct";
+        GBM_BACKEND = "nvidia-drm";
+      };
     };
 
     # User-specific git configuration
