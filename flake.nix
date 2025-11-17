@@ -32,6 +32,11 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/nuc_n100/configuration.nix];
       };
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/desktop/configuration.nix];
+      };
     };
   };
 }

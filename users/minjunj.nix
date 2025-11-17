@@ -17,7 +17,7 @@
   home-manager.users.minjunj = {
     home = {
       username = "minjunj";
-      homeDirectory = "/home/minjunj";
+      homeDirectory = "/home/ground";
       stateVersion = "25.05";
     };
 
