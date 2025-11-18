@@ -3,7 +3,6 @@
   # Korean input method (fcitx5)
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-hangul # Korean input
       fcitx5-gtk # GTK integration
