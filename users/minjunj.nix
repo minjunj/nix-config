@@ -13,6 +13,12 @@
     extraGroups = ["wheel" "networkmanager"];
   };
 
+  fonts.packages = with pkgs; [
+  noto-fonts
+  noto-fonts-cjk-sans
+  noto-fonts-emoji
+  ];
+
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
     imports = [

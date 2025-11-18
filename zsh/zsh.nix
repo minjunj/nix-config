@@ -16,6 +16,8 @@
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
     shellAliases = {
+      open = "dolphin";
+
       # Git aliases
       g-s = "git status";
       g-a = "git add . && git status";
