@@ -23,6 +23,7 @@
   home-manager.users.minjunj = {
     imports = [
       ../kvm/fcitx5.nix
+      ../jobgut/kakaotalk.nix
     ];
 
     home = {
