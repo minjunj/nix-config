@@ -66,6 +66,10 @@ let
     export WINEDLLOVERRIDES="mscoree,mshtml="
     export WINEARCH=${wineArch}
 
+    GTK_IM_MODULE=fcitx
+    QT_IM_MODULE=fcitx
+    XMODIFIERS=@im=fcitx
+
     wine "${winePrefix}/drive_c/Program Files/Kakao/KakaoTalk/KakaoTalk.exe"
   '';
   runner = pkgs.stdenv.mkDerivation {

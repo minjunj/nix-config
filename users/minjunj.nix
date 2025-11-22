@@ -19,6 +19,10 @@
   noto-fonts-emoji
   ];
 
+  environment.systemPackages = [
+    pkgs.wineWowPackages.full # wine 한글을 위해 썼는데, 딱히 안 됨.
+  ];
+
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
     imports = [
