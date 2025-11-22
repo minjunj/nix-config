@@ -47,8 +47,6 @@
     # User-specific git configuration
     programs.git = {
       enable = true;
-      userName = "minjunj";
-      userEmail = "minjun_jo@gm.gist.ac.kr";
     };
   };
 }
