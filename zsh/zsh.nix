@@ -21,7 +21,7 @@
       # Git aliases
       g-s = "git status";
       g-a = "git add . && git status";
-      g-c = "git commit";
+      g-c = "git commit -m";
       g-p = "git push origin";
       g-d = "git diff";
       gpl = "git pull origin";
@@ -35,9 +35,9 @@
       plugins = [ "git" ];
     };
 
-    initExtra = ''
+    envExtra = ''
       export SSH_AUTH_SOCK=~/.1password/agent.sock
-    ''
+    '';
   };
 
   environment.systemPackages = [
