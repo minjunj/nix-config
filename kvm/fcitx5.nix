@@ -2,11 +2,19 @@
 {
   # Korean input method
   i18n = {
-    defaultLocale = "en_US.UTF-8";
     inputMethod = {
       enable = true;
-      type = "kime";
-      kime.iconColor = "White";
+      type = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          kdePackages.fcitx5-qt
+          fcitx5-gtk
+          fcitx5-hangul
+          fcitx5-mozc
+          fcitx5-fluent
+        ];
+      };
     };
   }
 }
