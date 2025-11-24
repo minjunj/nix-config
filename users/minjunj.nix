@@ -47,6 +47,24 @@
     # User-specific git configuration
     programs.git = {
       enable = true;
+      userName = "minjunj";
+      userEmail = "minjun_jo@gm.gist.ac.kr";
+
+      extraConfig = {
+        gpg = {
+          format = "ssh";
+        };
+        "gpg \"ssh\"" = {
+          program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+        };
+        commit = {
+          gpgsign = true;
+        };
+
+        user = {
+          signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC+JrIS2J0hYdsxDy/fSqMgiHGvMFWFgkup2ektW7YoN";
+        };
+      };
     };
   };
 }
