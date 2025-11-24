@@ -14,6 +14,8 @@
     promptInit = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+      export SSH_AUTH_SOCK=~/.1password/agent.sock
     '';
     shellAliases = {
       open = "dolphin";
@@ -34,10 +36,6 @@
       enable = true;
       plugins = [ "git" ];
     };
-
-    envExtra = ''
-      export SSH_AUTH_SOCK=~/.1password/agent.sock
-    '';
   };
 
   environment.systemPackages = [
