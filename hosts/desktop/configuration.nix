@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     ../../users/minjunj.nix
+    ../../secret/1password.nix
     ../../hardware/nvidia/nvidia.nix
   ];
 
