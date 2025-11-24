@@ -10,7 +10,7 @@
     initialPassword = "1234";
     isNormalUser = true;
     openssh.authorizedKeys.keys = [];
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "docker"];
   };
 
   fonts.packages = with pkgs; [

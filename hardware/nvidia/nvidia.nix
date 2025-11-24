@@ -24,11 +24,25 @@
     powerManagement.enable = true;
   };
 
+  # NOTE: hardware 설정으로 nvidia docker를 활성화한다면 --device nvidia.com/gpu=all 를 이용.
   hardware.nvidia-container-toolkit.enable = true;
   hardware.graphics = {
     enable = true;
     # needed by nvidia-docker
     enable32Bit = true;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      experimental = true;
+      default-address-pools = [
+        {
+          base = "172.30.0.0/16";
+          size = 24;
+        }
+      ];
+    };
   };
 
   nixpkgs.overlays = [
