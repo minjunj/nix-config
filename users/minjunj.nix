@@ -20,7 +20,7 @@
   ];
 
   environment.systemPackages = [
-    pkgs.wineWowPackages.full # wine 한글을 위해 썼는데, 딱히 안 됨.
+    pkgs.discord
   ];
 
   # home-manager configuration for minjunj

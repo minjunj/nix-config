@@ -61,14 +61,17 @@
       vim
       wget
       htop
+      # GUI applications
       google-chrome
       firefox
       vscode-fhs # vscode virtualization
+      ####
       asdf-vm
       # dockers
       docker
       docker-compose
       docker-buildx
+      ####
     ];
 
     # Enable plasma for all users
