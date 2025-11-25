@@ -61,6 +61,7 @@
       vim
       wget
       htop
+      neofetch
       # GUI applications
       google-chrome
       firefox
