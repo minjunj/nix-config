@@ -21,6 +21,7 @@
 
   environment.systemPackages = [
     pkgs.discord
+    pkgs.claude-code
   ];
 
   # home-manager configuration for minjunj
