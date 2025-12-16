@@ -13,6 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    # nix-darwin
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -20,6 +24,7 @@
     nixpkgs,
     home-manager,
     plasma-manager,
+    nix-darwin,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -36,6 +41,16 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/desktop/configuration.nix];
+      };
+    };
+
+    # nix-darwin configuration entrypoint
+    # Available through 'darwin-rebuild --flake .#hostname'
+    darwinConfigurations = {
+      mackintosh = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = {inherit inputs outputs;};
+        modules = [./mackintosh/darwin-configuration.nix];
       };
     };
   };
