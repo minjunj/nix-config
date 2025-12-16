@@ -8,6 +8,8 @@
 }: {
   imports = [
     ./modules/common.nix
+    inputs.home-manager.darwinModules.home-manager
+    ./home-manager.nix
   ];
 
   # Nix configuration
@@ -51,6 +53,13 @@
     htop
     neofetch
   ];
+
+  # home-manager configuration
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {inherit inputs;};
+  };
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
