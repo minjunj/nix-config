@@ -71,6 +71,11 @@
     brews = [
       "git"
     ];
+
+    casks = [
+      "visual-studio-code"
+      "iterm2"
+    ];
   };
 
   # home-manager configuration
