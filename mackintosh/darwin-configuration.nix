@@ -84,5 +84,5 @@
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
   # Used for backwards compatibility
-  system.stateVersion = 5;
+  system.stateVersion = "25.05";
 }

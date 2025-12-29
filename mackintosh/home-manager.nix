@@ -11,7 +11,7 @@
     home = {
       username = "minjunj";
       homeDirectory = "/Users/minjunj";
-      stateVersion = "25.11";
+      stateVersion = "25.05";
     };
 
     # Powerlevel10k configuration file

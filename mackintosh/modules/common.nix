@@ -39,5 +39,5 @@
   ];
 
   # Used for backwards compatibility
-  system.stateVersion = 5;
+  system.stateVersion = "25.05";
 }
