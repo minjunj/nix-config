@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./modules/common.nix
+    ./modules/system-settings.nix
     inputs.home-manager.darwinModules.home-manager
     ./home-manager.nix
   ];
@@ -45,6 +46,9 @@
     home = "/Users/minjunj";
   };
 
+  # Primary user for system defaults
+  system.primaryUser = "minjunj";
+
   # System-level packages
   environment.systemPackages = with pkgs; [
     curl
@@ -53,6 +57,21 @@
     htop
     neofetch
   ];
+
+  # Homebrew configuration
+  homebrew = {
+    enable = true;
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
+    };
+
+    # Homebrew packages
+    brews = [
+      "git"
+    ];
+  };
 
   # home-manager configuration
   home-manager = {

@@ -11,7 +11,7 @@
     home = {
       username = "minjunj";
       homeDirectory = "/Users/minjunj";
-      stateVersion = "25.05";
+      stateVersion = "25.11";
     };
 
     # Powerlevel10k configuration file
@@ -19,19 +19,12 @@
 
     # macOS compatible packages
     home.packages = with pkgs; [
-      curl
-      vim
-      wget
-      htop
-      neofetch
-      # Development tools
-      git
-      # Terminal utilities
       tree
-      ripgrep
-      fd
-      bat
-      eza
+      jq
+      asdf-vm
+      kubectl
+      kubectx
+      awscli2
     ];
 
 
