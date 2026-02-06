@@ -11,7 +11,7 @@
   ];
 
   fileSystems."/nas/share" = {
-    device = "//192.168.0.18/share";
+    device = "//192.168.0.18/nishizumi/miho/share";
     fsType = "cifs";
     options = [
       "credentials=/home/minjunj/nix-config/secret/smb-secret"
