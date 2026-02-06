@@ -10,6 +10,12 @@
     cifs-utils
   ];
 
+  # Create mount point directories
+  system.activationScripts.nasDirs = ''
+    mkdir -p /nas/share
+    chmod 755 /nas/share
+  '';
+
   fileSystems."/nas/share" = {
     device = "//192.168.0.18/share";
     fsType = "cifs";
