@@ -16,6 +16,8 @@
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
       export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+      eval "$(direnv hook zsh)"
     '';
     shellAliases = {
       open = "dolphin";
