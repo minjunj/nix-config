@@ -10,12 +10,6 @@
     cifs-utils
   ];
 
-  # Create mount point directories
-  system.activationScripts.nasDirs = ''
-    mkdir -p /nas/share
-    chmod 755 /nas/share
-  '';
-
   fileSystems."/nas/share" = {
     device = "//192.168.0.18/share";
     fsType = "cifs";
@@ -23,6 +17,6 @@
       # this line prevents hanging on network split
       automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
 
-    in ["${automount_opts},credentials=/home/minjunj/nix-config/secret/smb-secret"];
+    in ["${automount_opts},credentials=/home/minjunj/nix-config/secret/smb-secret,uid=1000,gid=100"];
   };
 }
