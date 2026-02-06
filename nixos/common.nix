@@ -63,6 +63,7 @@
       htop
       neofetch
       net-tools
+      direnv
       # GUI applications
       google-chrome
       firefox
