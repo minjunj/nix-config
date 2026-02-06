@@ -17,6 +17,8 @@
       "credentials=/home/minjunj/nix-config/secret/smb-secret"
       "uid=1000"
       "gid=100"
+      "vers=3.0"
+      "noperm"
       "x-systemd.device-timeout=5s"
       "x-systemd.mount-timeout=5s"
     ];
