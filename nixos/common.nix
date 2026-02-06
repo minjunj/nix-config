@@ -75,7 +75,7 @@
       docker-buildx
       ####
       # For Desktop. (will be ignored on servers)
-      xfce.ristretto
+      geeqie
     ];
 
     # Enable plasma for all users
