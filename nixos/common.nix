@@ -62,6 +62,7 @@
       wget
       htop
       neofetch
+      net-tools
       # GUI applications
       google-chrome
       firefox
