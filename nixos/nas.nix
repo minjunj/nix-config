@@ -13,17 +13,10 @@
   fileSystems."/nas/share" = {
     device = "//192.168.0.18/share";
     fsType = "cifs";
-    options = [
-      "credentials=/home/minjunj/nix-config/secret/smb-credentials"
-      "uid=1000"          # 파일 소유자를 minjunj로 설정
-      "gid=100"           # 그룹을 users로 설정
-      "file_mode=0644"    # 파일 권한
-      "dir_mode=0755"     # 디렉토리 권한
-      "iocharset=utf8"    # UTF-8 인코딩
-    ];
-  };
+    options = let
+      # this line prevents hanging on network split
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
 
-  systemd.tmpfiles.rules = [
-    "d /nas/share 0755 root root -"
-  ];
+    in ["${automount_opts},credentials=/home/minjunj/nix-config/secret/smb-secret"];
+  };
 }

@@ -1,3 +1,4 @@
 .claude/
 /temp
-secret/smb-credentials
+secret/smb-secret
+
