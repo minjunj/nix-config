@@ -11,8 +11,7 @@
   home-manager.sharedModules = [{
     # Common packages for all users
     home.packages = with pkgs; [
-      # For Desktop. (will be ignored on servers)
-      geeqie
+      geeqie # Image viewer
       prismlauncher # Minecraft launcher
     ];
     }];
