@@ -63,7 +63,6 @@
       htop
       neofetch
       net-tools
-      direnv
       # GUI applications
       google-chrome
       firefox
@@ -76,6 +75,12 @@
       docker-buildx
       ####
     ];
+
+    # Enable direnv with nix-direnv integration
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     # Enable plasma for all users
     programs.plasma = {
