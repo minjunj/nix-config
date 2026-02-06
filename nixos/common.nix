@@ -74,6 +74,8 @@
       docker-compose
       docker-buildx
       ####
+      # For Desktop. (will be ignored on servers)
+      xfce.ristretto
     ];
 
     # Enable plasma for all users
