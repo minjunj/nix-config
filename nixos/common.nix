@@ -74,8 +74,6 @@
       docker-compose
       docker-buildx
       ####
-      # For Desktop. (will be ignored on servers)
-      geeqie
     ];
 
     # Enable plasma for all users
