@@ -10,13 +10,6 @@
     cifs-utils
   ];
 
-  # SMB/CIFS mounts configuration
-  # Credentials should be stored in /etc/nixos/smb-credentials
-  # Format of credentials file:
-  #   username=YOUR_NAS_USERNAME
-  #   password=YOUR_NAS_PASSWORD
-  #   domain=WORKGROUP
-
   fileSystems."/nas/share" = {
     device = "//192.168.0.18/share";
     fsType = "cifs";
@@ -30,9 +23,7 @@
     ];
   };
 
-  # Ensure the mount point directory exists and credentials file has correct permissions
   systemd.tmpfiles.rules = [
     "d /nas/share 0755 root root -"
-    "z /home/minjunj/nix-config/secret/smb-credentials 0600 root root -"
   ];
 }
