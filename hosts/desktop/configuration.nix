@@ -25,9 +25,10 @@
   networking.networkmanager.enable = true;
 
   # Enable KDE Plasma on Wayland
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+  # services.displayManager.sddm.enable = true;
+  
 
   # home-manager configuration
   home-manager = {
