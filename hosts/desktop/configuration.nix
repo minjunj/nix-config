@@ -24,6 +24,9 @@
   networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
+  # Required for xdg-portal with home-manager
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+
   # Enable KDE Plasma on Wayland
   # services.desktopManager.plasma6.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
