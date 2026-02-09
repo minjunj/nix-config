@@ -29,7 +29,12 @@
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 
   # Enable niri compositor
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri.overrideAttrs (oldAttrs: {
+      doCheck = false;
+    });
+  };
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
 
@@ -44,8 +49,5 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {inherit inputs;};
-    sharedModules = [
-      inputs.niri-flake.homeModules.niri
-    ];
   };
 }

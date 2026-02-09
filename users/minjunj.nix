@@ -22,6 +22,7 @@
   environment.systemPackages = [
     pkgs.discord
     pkgs.claude-code
+    pkgs.fuzzel
   ];
 
   # home-manager configuration for minjunj
@@ -30,6 +31,9 @@
       ../kvm/fcitx5.nix
       ../jobgut/kakaotalk.nix
     ];
+
+    # Niri configuration file
+    xdg.configFile."niri/config.kdl".source = ../wm/niri/config.kdl;
 
     home = {
       username = "minjunj";
