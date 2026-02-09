@@ -32,8 +32,8 @@
       ../jobgut/kakaotalk.nix
     ];
 
-    # Niri configuration file
-    xdg.configFile."niri/config.kdl".source = ../wm/niri/config.kdl;
+    # # Niri configuration file
+    # xdg.configFile."niri/config.kdl".source = ../wm/niri/config.kdl;
 
     home = {
       username = "minjunj";
