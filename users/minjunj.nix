@@ -23,6 +23,7 @@
     pkgs.discord
     pkgs.claude-code
     pkgs.fuzzel
+    pkgs.ghostty
   ];
 
   # home-manager configuration for minjunj
@@ -32,8 +33,8 @@
       ../jobgut/kakaotalk.nix
     ];
 
-    # # Niri configuration file
-    # xdg.configFile."niri/config.kdl".source = ../wm/niri/config.kdl;
+    # Niri configuration file
+    xdg.configFile."niri/config.kdl".source = ../niri/config.kdl;
 
     home = {
       username = "minjunj";
