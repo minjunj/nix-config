@@ -11,6 +11,7 @@
     ../../nixos/nas.nix
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.niri-flake.nixosModules.niri
     ../../users/minjunj.nix
     ./other.nix
     ../../secret/1password.nix
@@ -27,11 +28,16 @@
   # Required for xdg-portal with home-manager
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 
-  # Enable KDE Plasma on Wayland
-  # services.desktopManager.plasma6.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
-  # services.displayManager.sddm.enable = true;
-  
+  # Enable niri compositor
+  programs.niri.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
+
+  # Enable xwayland-satellite for X11 app support
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite
+  ];
+
 
   # home-manager configuration
   home-manager = {
@@ -39,7 +45,6 @@
     useUserPackages = true;
     extraSpecialArgs = {inherit inputs;};
     sharedModules = [
-      inputs.plasma-manager.homeModules.plasma-manager
       inputs.niri-flake.homeModules.niri
     ];
   };

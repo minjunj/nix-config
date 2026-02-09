@@ -48,10 +48,6 @@
   # Common home-manager configuration
   # This provides shared packages and settings for all users
   home-manager.sharedModules = [{
-    imports = [
-      ../theme/plasma-theme.nix
-    ];
-
     # Powerlevel10k configuration
     home.file.".p10k.zsh".source = ../zsh/p10k.zsh;
 
@@ -80,11 +76,6 @@
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
-    };
-
-    # Enable plasma for all users
-    programs.plasma = {
-      enable = true;
     };
 
     # Enable home-manager

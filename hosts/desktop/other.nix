@@ -15,9 +15,5 @@
       yazi # CLI file manager
       prismlauncher # Minecraft launcher
     ];
-
-    programs.niri = {
-      enable = true; # default pkg is niri-stable.
-    };
-    }];
+  }];
 }
