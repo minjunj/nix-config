@@ -36,6 +36,7 @@
     extraSpecialArgs = {inherit inputs;};
     sharedModules = [
       inputs.plasma-manager.homeModules.plasma-manager
+      inputs.niri-flake.homeModules.niri
     ];
   };
 }
