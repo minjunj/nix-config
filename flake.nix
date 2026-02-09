@@ -17,6 +17,12 @@
     # nix-darwin
     nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    niri-flake = {
+      url = github:sodiboo/niri-flake;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = {
