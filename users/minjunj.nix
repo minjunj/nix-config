@@ -30,7 +30,7 @@
   home-manager.users.minjunj = {
     imports = [
       ../kvm/fcitx5.nix
-      ../jobgut/kakaotalk.nix
+      # ../jobgut/kakaotalk.nix
     ];
 
     # Niri configuration file

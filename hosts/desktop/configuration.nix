@@ -31,6 +31,7 @@
   # Enable niri compositor
   programs.niri = {
     enable = true;
+    package = inputs.niri-flake.packages.${pkgs.system}.niri-unstable;
   };
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
