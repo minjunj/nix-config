@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-25.11";
@@ -21,6 +22,11 @@
     niri-flake = {
       url = github:sodiboo/niri-flake;
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nix-unstable.follows = "nixpkgs";
     };
 
   };

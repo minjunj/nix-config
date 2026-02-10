@@ -24,6 +24,7 @@
     pkgs.claude-code
     pkgs.fuzzel
     pkgs.ghostty
+    pkgs.noctalia-shell
   ];
 
   # home-manager configuration for minjunj
