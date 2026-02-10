@@ -621,3 +621,5 @@ binds {
     // moving the mouse or pressing any other key.
     Alt+Shift+P { power-off-monitors; }
 }
+
+spawn-at-startup "qs" "-c" "noctalia-shell"
