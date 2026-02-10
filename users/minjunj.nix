@@ -57,8 +57,10 @@
         user = {
           name = "minjunj";
           email = "minjun_jo@gm.gist.ac.kr";
-        }
-        gpg.format = "ssh";
+        };
+        gpg = {
+          format = "ssh";
+        };
         "gpg \"ssh\"" = {
           program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
         };
