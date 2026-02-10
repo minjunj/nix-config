@@ -31,9 +31,6 @@
   # Enable niri compositor
   programs.niri = {
     enable = true;
-    package = pkgs.niri.overrideAttrs (oldAttrs: {
-      doCheck = false;
-    });
   };
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
