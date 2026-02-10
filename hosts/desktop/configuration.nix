@@ -16,6 +16,7 @@
     ./other.nix
     ../../secret/1password.nix
     ../../hardware/nvidia/nvidia.nix
+    ../../noctalia.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
