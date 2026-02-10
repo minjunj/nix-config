@@ -9,7 +9,7 @@
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     promptInit = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
@@ -37,7 +37,7 @@
       rebuild = "sudo nixos-rebuild switch --flake";
       update = "nix flake update";
     };
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       plugins = [ "git" ];
     };

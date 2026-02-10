@@ -53,13 +53,12 @@
     # User-specific git configuration
     programs.git = {
       enable = true;
-      userName = "minjunj";
-      userEmail = "minjun_jo@gm.gist.ac.kr";
-
-      extraConfig = {
-        gpg = {
-          format = "ssh";
-        };
+      settings = {
+        user = {
+          name = "minjunj";
+          email = "minjun_jo@gm.gist.ac.kr";
+        }
+        gpg.format = "ssh";
         "gpg \"ssh\"" = {
           program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
         };
