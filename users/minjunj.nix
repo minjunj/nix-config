@@ -49,6 +49,12 @@
         NVD_BACKEND = "direct";
         GBM_BACKEND = "nvidia-drm";
       };
+
+      file.".cache/noctalia/wallpapers.json" = {
+        text = builtins.toJSON {
+          defaultWallpaper = "/home/minjunj/nix-config/assets/gup2.jpg";
+        };
+      };
     };
 
     # User-specific git configuration
