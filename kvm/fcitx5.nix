@@ -17,4 +17,10 @@
       };
     };
   };
+
+  # fcitx5 환경 변수 설정
+  home.sessionVariables = {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+  };
 }
