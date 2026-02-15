@@ -18,14 +18,10 @@
           widgets = {
             left = [
               {
-                id = "ControlCenter";
-                useDistroLogo = true;
+                id = "Launcher";
               }
               {
-                id = "Network";
-              }
-              {
-                id = "Bluetooth";
+                id = "ActiveWindow";
               }
             ];
             center = [
@@ -37,23 +33,98 @@
             ];
             right = [
               {
+                id = "Network";
+              }
+              {
+                id = "Bluetooth";
+              }
+              {
+                id = "SystemMonitor";
+              }
+              {
+                id = "Battery";
+              }
+              {
                 formatHorizontal = "HH:mm";
                 formatVertical = "HH mm";
                 id = "Clock";
                 useMonospacedFont = true;
                 usePrimaryColor = true;
               }
+              {
+                id = "ControlCenter";
+                useDistroLogo = true;
+              }
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Monochrome";
+        controlCenter = {
+          shortcuts = {
+            left = [
+              {
+                id = "Network";
+              }
+              {
+                id = "Bluetooth";
+              }
+              {
+                id = "NoctaliaPerformance";
+              }
+            ];
+            right = [
+              {
+                id = "Notifications";
+              }
+              {
+                id = "PowerProfile";
+              }
+              {
+                id = "KeepAwake";
+              }
+              {
+                id = "NightLight";
+              }
+            ];
+            cards = [
+            {
+              enabled = false;
+              id = "profile-card";
+            }
+            {
+              enabled = false;
+              id = "shortcuts-card";
+            }
+            {
+              enabled = true;
+              id = "audio-card";
+            }
+            {
+              enabled = false;
+              id = "brightness-card";
+            }
+            {
+              enabled = true;
+              id = "weather-card";
+            }
+            {
+              enabled = false;
+              id = "media-sysmon-card";
+            }
+          ];
+          };
+        };
+        sessionMenu.countdownDuration = 1000; # 1s
+        colorSchemes = {
+          useWallpaperColors = true;
+          predefinedScheme = "Catppuccin";
+        };
         general = {
           # avatarImage = "/home/drfoobar/.face";
           radiusRatio = 0.2;
         };
         location = {
           monthBeforeDay = true;
-          name = "Marseille, France";
+          name = "Seoul, Korea";
         };
       };
       # this may also be a string or a path to a JSON file.
