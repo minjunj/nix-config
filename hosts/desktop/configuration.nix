@@ -1,4 +1,4 @@
-# nuc_n100 host-specific configuration
+# desktop host-specific configuration
 {
   inputs,
   lib,
