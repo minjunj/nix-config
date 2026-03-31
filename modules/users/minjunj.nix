@@ -30,12 +30,12 @@
   # home-manager configuration for minjunj
   home-manager.users.minjunj = {
     imports = [
-      ../kvm/fcitx5.nix
-      # ../jobgut/kakaotalk.nix
+      ../apps/fcitx5.nix
+      # ../apps/kakaotalk.nix
     ];
 
     # Niri configuration file
-    xdg.configFile."niri/config.kdl".source = ../niri/config.kdl;
+    xdg.configFile."niri/config.kdl".source = ../desktop/window_manager/tiling/niri/config.kdl;
 
     home = {
       username = "minjunj";

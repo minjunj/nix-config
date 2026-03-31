@@ -7,16 +7,16 @@
   ...
 }: {
   imports = [
-    ../../nixos/common.nix
-    ../../nixos/nas.nix
+    ../../modules/nixos/common.nix
+    ../../modules/nixos/nas.nix
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.niri-flake.nixosModules.niri
-    ../../users/minjunj.nix
+    ../../modules/users/minjunj.nix
     ./other.nix
-    ../../secret/1password.nix
-    ../../hardware/nvidia/nvidia.nix
-    ../../noctalia.nix
+    ../../secrets/1password.nix
+    ../../modules/nixos/hardware/nvidia.nix
+    ../../modules/desktop/window_manager/tiling/noctalia.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

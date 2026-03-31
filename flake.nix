@@ -62,7 +62,7 @@
       mackintosh = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = {inherit inputs outputs;};
-        modules = [./mackintosh/darwin-configuration.nix];
+        modules = [./platforms/darwin/darwin-configuration.nix];
       };
     };
   };

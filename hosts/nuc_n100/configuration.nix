@@ -7,10 +7,10 @@
   ...
 }: {
   imports = [
-    ../../nixos/common.nix
+    ../../modules/nixos/common.nix
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    ../../users/minjunj.nix
+    ../../modules/users/minjunj.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

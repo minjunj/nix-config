@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ../zsh/zsh.nix
+    ../shell/zsh.nix
   ];
 
   nixpkgs = {
@@ -49,7 +49,7 @@
   # This provides shared packages and settings for all users
   home-manager.sharedModules = [{
     # Powerlevel10k configuration
-    home.file.".p10k.zsh".source = ../zsh/p10k.zsh;
+    home.file.".p10k.zsh".source = ../shell/p10k.zsh;
 
     # Common packages for all users
     home.packages = with pkgs; [
