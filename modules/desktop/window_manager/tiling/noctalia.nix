@@ -113,6 +113,10 @@
           ];
           };
         };
+        audio = {
+          volumeStep = 1;
+          volumeFeedback = true;
+        };
         sessionMenu.countdownDuration = 1000; # 1s
         colorSchemes = {
           useWallpaperColors = true;
