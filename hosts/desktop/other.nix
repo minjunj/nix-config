@@ -16,4 +16,10 @@
       prismlauncher # Minecraft launcher
     ];
   }];
+
+  environment.systemPackages = [
+    pkgs.godotPackages_4_6.godot-mono
+    pkgs.godotPackages_4_6.export-templates-mono-bin
+    pkgs.dotnetCorePackages.sdk_8_0
+  ];
 }
