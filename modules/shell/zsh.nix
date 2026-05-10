@@ -22,7 +22,6 @@
     shellAliases = {
       open = "dolphin";
 
-      kakaotalk = "sudo kakaotalk";
       nix-rebuild = "sudo nixos-rebuild switch --flake"; # .#machinename
 
       # Git aliases

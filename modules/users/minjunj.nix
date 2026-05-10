@@ -31,7 +31,6 @@
   home-manager.users.minjunj = {
     imports = [
       ../apps/fcitx5.nix
-      # ../apps/kakaotalk.nix
     ];
 
     # Niri configuration file

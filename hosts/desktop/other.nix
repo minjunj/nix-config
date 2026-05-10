@@ -13,7 +13,6 @@
     home.packages = with pkgs; [
       geeqie # Image viewer
       yazi # CLI file manager
-      prismlauncher # Minecraft launcher
     ];
   }];
 
