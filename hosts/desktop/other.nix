@@ -17,8 +17,15 @@
   }];
 
   environment.systemPackages = [
+    # godot
     pkgs.godotPackages_4_6.godot-mono
     pkgs.godotPackages_4_6.export-templates-mono-bin
     pkgs.dotnetCorePackages.sdk_8_0
+    # proton
+    pkgs.protonplus
   ];
+
+  programs.steam = {
+    enable = true;
+  };
 }
