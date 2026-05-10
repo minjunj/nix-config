@@ -16,13 +16,15 @@
     ];
   }];
 
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     # godot
-    pkgs.godotPackages_4_6.godot-mono
-    pkgs.godotPackages_4_6.export-templates-mono-bin
-    pkgs.dotnetCorePackages.sdk_8_0
+    godotPackages_4_6.godot-mono
+    godotPackages_4_6.export-templates-mono-bin
+    dotnetCorePackages.sdk_8_0
     # proton
-    pkgs.protonplus
+    protonplus
+    # steam
+    steamcmd
   ];
 
   programs.steam = {
