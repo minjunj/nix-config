@@ -37,6 +37,13 @@
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
 
+  # Enable xdg-desktop-portal for URL opening, file picker, etc.
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
+
   # Enable xwayland-satellite for X11 app support
   environment.systemPackages = with pkgs; [
     xwayland-satellite
