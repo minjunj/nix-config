@@ -70,7 +70,7 @@
       vim
       wget
       htop
-      neofetch
+      fastfetch
       net-tools
       # GUI applications
       google-chrome

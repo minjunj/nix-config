@@ -55,7 +55,7 @@
     vim
     wget
     htop
-    neofetch
+    fastfetch
   ];
 
   # Homebrew configuration

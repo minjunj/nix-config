@@ -22,6 +22,7 @@
   environment.systemPackages = [
     pkgs.discord
     pkgs.claude-code
+    pkgs.codex
     pkgs.fuzzel
     pkgs.ghostty
     inputs.noctalia.packages.${pkgs.system}.default
