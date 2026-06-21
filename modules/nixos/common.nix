@@ -72,10 +72,10 @@
       htop
       fastfetch
       net-tools
+      yazi # CLI file manager
       # GUI applications
       google-chrome
       firefox
-      vscode-fhs # vscode virtualization
       ####
       asdf-vm
       # dockers

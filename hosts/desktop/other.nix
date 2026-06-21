@@ -12,7 +12,7 @@
     # Common packages for all users
     home.packages = with pkgs; [
       geeqie # Image viewer
-      yazi # CLI file manager
+      vscode-fhs # vscode virtualization
     ];
   }];
 
@@ -25,6 +25,13 @@
     protonplus
     # steam
     steamcmd
+    # desktop settings
+    discord
+    claude-code
+    codex
+    fuzzel
+    ghostty
+    inputs.noctalia.packages.${pkgs.system}.default
   ];
 
   programs.steam = {
