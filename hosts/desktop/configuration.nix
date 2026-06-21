@@ -26,6 +26,10 @@
   networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
+  my.shell.zsh = {
+    enableOnePasswordAgent = true;
+  };
+
   # Required for xdg-portal with home-manager
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 
