@@ -66,6 +66,7 @@
 
     # Common packages for all users
     home.packages = with pkgs; [
+      git
       curl
       vim
       wget
