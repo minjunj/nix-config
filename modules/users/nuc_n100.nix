@@ -7,7 +7,9 @@
   users.users.nuc_n100 = {
     initialPassword = "1234";
     isNormalUser = true;
-    openssh.authorizedKeys.keys = [];
+    openssh.authorizedKeys.keys = [ 
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAR2RBICNZijk4NvRQvtuSo6zmPlcTnQtd1/pZ2k5KEJ"
+    ];
     extraGroups = ["wheel" "networkmanager" "docker"];
   };
 
