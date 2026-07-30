@@ -37,4 +37,12 @@
   programs.steam = {
     enable = true;
   };
+
+  # ghostty 사용 시 ssh할 때 생기는 문제 대응
+  programs.ssh = {
+    extraConfig = "
+      Host *
+        SetEnv TERM=xterm-256color
+    ";
+  };
 }
