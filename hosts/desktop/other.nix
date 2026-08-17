@@ -32,6 +32,8 @@
     fuzzel
     ghostty
     inputs.noctalia.packages.${pkgs.system}.default
+    # booting disk GUI
+    mediawriter
   ];
 
   programs.steam = {
