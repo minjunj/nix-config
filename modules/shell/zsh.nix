@@ -35,7 +35,7 @@ in {
         nix-rebuild = "sudo nixos-rebuild switch --flake"; # .#machinename
 
         # Git aliases
-        g-s = "git status";
+        g-s = "git switch";
         g-a = "git add . && git status";
         g-c = "git commit -m";
         g-p = "git push origin";
