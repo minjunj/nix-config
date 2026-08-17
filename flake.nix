@@ -5,6 +5,14 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-apple-silicon = {
+      url = "github:nix-community/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    asahi-linux-fairydust = {
+      url = "github:AsahiLinux/linux/fairydust";
+      flake = false;
+    };
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-26.05";
@@ -40,6 +48,11 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    linuxSystems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    forAllLinuxSystems = nixpkgs.lib.genAttrs linuxSystems;
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#hostname'
@@ -55,6 +68,40 @@
         modules = [./hosts/desktop/configuration.nix];
       };
     };
+
+    packages = forAllLinuxSystems (
+      system: {
+        macbook-installer =
+          (nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              inherit inputs outputs;
+              modulesPath = "${nixpkgs}/nixos/modules";
+            };
+            modules = [
+              inputs.nixos-apple-silicon.nixosModules.apple-silicon-installer
+              ./hosts/macbook/installer.nix
+              {
+                hardware.asahi.pkgsSystem = system;
+                nixpkgs.hostPlatform.system = "aarch64-linux";
+                nixpkgs.buildPlatform.system = system;
+                nixpkgs.overlays = [
+                  inputs.nixos-apple-silicon.overlays.default
+                  (final: prev: {
+                    linux-asahi = prev.linux-asahi.override {
+                      src = inputs.asahi-linux-fairydust;
+                    };
+                  })
+                ];
+              }
+            ];
+          })
+          .config
+          .system
+          .build
+          .isoImage;
+      }
+    );
 
     # nix-darwin configuration entrypoint
     # Available through 'darwin-rebuild --flake .#hostname'
