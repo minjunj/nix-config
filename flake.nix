@@ -53,6 +53,24 @@
       "x86_64-linux"
     ];
     forAllLinuxSystems = nixpkgs.lib.genAttrs linuxSystems;
+    fairydustKernelOverlay = final: prev: {
+      linux-asahi = prev.linux-asahi.override {
+        callPackage = f: args:
+          final.callPackage f (args
+            // {
+              buildLinux = kernelArgs:
+                final.buildLinux (kernelArgs
+                  // {
+                    version = "7.1.6";
+                    modDirVersion = "7.1.6";
+                  });
+              fetchFromGitHub = fetchArgs:
+                if (fetchArgs.owner or null) == "AsahiLinux" && (fetchArgs.repo or null) == "linux"
+                then inputs.asahi-linux-fairydust
+                else final.fetchFromGitHub fetchArgs;
+            });
+      };
+    };
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#hostname'
@@ -66,6 +84,19 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/desktop/configuration.nix];
+      };
+      macbook = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/macbook/configuration.nix
+          {
+            nixpkgs.overlays = [
+              inputs.nixos-apple-silicon.overlays.default
+              fairydustKernelOverlay
+            ];
+          }
+        ];
       };
     };
 
@@ -87,11 +118,7 @@
                 nixpkgs.buildPlatform.system = system;
                 nixpkgs.overlays = [
                   inputs.nixos-apple-silicon.overlays.default
-                  (final: prev: {
-                    linux-asahi = prev.linux-asahi.override {
-                      src = inputs.asahi-linux-fairydust;
-                    };
-                  })
+                  fairydustKernelOverlay
                 ];
               }
             ];

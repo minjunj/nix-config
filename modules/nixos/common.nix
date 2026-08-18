@@ -75,7 +75,6 @@
       net-tools
       yazi # CLI file manager
       # GUI applications
-      google-chrome
       firefox
       ####
       asdf-vm
@@ -84,6 +83,8 @@
       docker-compose
       docker-buildx
       ####
+    ] ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
+      pkgs.google-chrome
     ];
 
     # Enable direnv with nix-direnv integration

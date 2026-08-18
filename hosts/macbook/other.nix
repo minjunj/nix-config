@@ -2,25 +2,31 @@
 # package set, but leave out NVIDIA, Steam, Proton, and Godot.
 {
   inputs,
+  lib,
   pkgs,
   ...
 }: {
   home-manager.sharedModules = [{
-    home.packages = with pkgs; [
-      geeqie
-      vscode-fhs
-    ];
+    home.packages =
+      (with pkgs; [
+        geeqie
+      ])
+      ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
+        pkgs.vscode-fhs
+      ];
   }];
 
   environment.systemPackages =
     (with pkgs; [
       claude-code
       codex
-      discord
       fuzzel
       ghostty
       inputs.noctalia.packages.${pkgs.system}.default
-    ]);
+    ])
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
+      pkgs.discord
+    ];
 
   programs.ssh = {
     extraConfig = ''
