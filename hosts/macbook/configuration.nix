@@ -11,7 +11,9 @@ in {
     inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
     inputs.home-manager.nixosModules.home-manager
     inputs.niri-flake.nixosModules.niri
+    ../../secrets/1password.nix
     ../../modules/users/minjunj-macbook.nix
+    ../../modules/nixos/hardware/macbook-keyd.nix
     ../../modules/desktop/window_manager/tiling/noctalia.nix
     ./asahi.nix
     ./other.nix
@@ -19,6 +21,12 @@ in {
 
   networking.hostName = "macbook";
   networking.networkmanager.enable = true;
+
+  my.shell.zsh = {
+    enableOnePasswordAgent = true;
+  };
+
+  services.upower.enable = true;
 
   environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
   environment.systemPackages = with pkgs; [

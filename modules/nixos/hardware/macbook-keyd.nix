@@ -21,13 +21,12 @@
       ids = lib.mkDefault [ "*" ];
 
       settings.main = {
-        # Make Command behave like Control, matching the desktop muscle memory.
+        # Swap left Control and left Command/Super, matching the desktop muscle memory.
+        leftcontrol = "leftmeta";
         leftmeta = "leftcontrol";
-        rightmeta = "rightcontrol";
 
         # Use only right Option as the Korean/English toggle.
         # Left Option remains Alt because it is intentionally not remapped.
-        rightalt = "hangeul";
       };
     };
   };

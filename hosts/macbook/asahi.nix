@@ -7,6 +7,7 @@
   hardware.asahi.peripheralFirmwareDirectory = /boot/vendorfw;
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.graceful = true;
   boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
   boot.initrd.kernelModules = [
     "uas"

@@ -10,10 +10,8 @@
     home.packages =
       (with pkgs; [
         geeqie
-      ])
-      ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
-        pkgs.vscode-fhs
-      ];
+        vscode-fhs
+      ]);
   }];
 
   environment.systemPackages =
