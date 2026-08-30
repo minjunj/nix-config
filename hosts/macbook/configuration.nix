@@ -12,6 +12,7 @@ in {
     inputs.home-manager.nixosModules.home-manager
     inputs.niri-flake.nixosModules.niri
     ../../secrets/1password.nix
+    ../../modules/nixos/nas.nix
     ../../modules/users/minjunj-macbook.nix
     ../../modules/nixos/hardware/macbook-keyd.nix
     ../../modules/desktop/window_manager/tiling/noctalia.nix
