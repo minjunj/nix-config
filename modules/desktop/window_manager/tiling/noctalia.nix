@@ -82,6 +82,10 @@
                 id = "SystemMonitor";
               }
               {
+                id = "Brightness";
+              }
+              {
+                displayMode = "graphic";
                 id = "Battery";
               }
               {
@@ -156,6 +160,14 @@
         audio = {
           volumeStep = 1;
           volumeFeedback = true;
+        };
+        brightness = {
+          backlightDeviceMappings = [
+            {
+              device = "apple-panel-bl";
+              output = "eDP-1";
+            }
+          ];
         };
         sessionMenu.countdownDuration = 1000; # 1s
         colorSchemes = {
