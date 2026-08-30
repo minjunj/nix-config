@@ -1,5 +1,37 @@
 {
   "nodes": {
+    "asahi-linux-fairydust": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786038922,
+        "narHash": "sha256-WywkNZXonLcyO0xAMlW7/k3uE9Embz3qedwyB5VOxQs=",
+        "owner": "AsahiLinux",
+        "repo": "linux",
+        "rev": "eb8089bbc11872c50fcf5138ff069d51b4ae996f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AsahiLinux",
+        "ref": "fairydust",
+        "repo": "linux",
+        "type": "github"
+      }
+    },
+    "flake-compat": {
+      "locked": {
+        "lastModified": 1761640442,
+        "narHash": "sha256-AtrEP6Jmdvrqiv4x2xa5mrtaIp3OEe8uBYCDZDS+hu8=",
+        "owner": "nix-community",
+        "repo": "flake-compat",
+        "rev": "4a56054d8ffc173222d09dad23adf4ba946c8884",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -116,13 +148,34 @@
         "type": "github"
       }
     },
+    "nixos-apple-silicon": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786862401,
+        "narHash": "sha256-zRPYCn5RJWxr9uyUwNIQjPsTFcIFRwuRnI91dqvGA0k=",
+        "owner": "nix-community",
+        "repo": "nixos-apple-silicon",
+        "rev": "53798a0eb0fa4c8cfaeca7bdc5b4ad22ed210c95",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixos-apple-silicon",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1780902259,
-        "narHash": "sha256-q8yYEC5f1mFlQO9RGna4LTc9QrcvWunX6FYp83munkQ=",
+        "lastModified": 1787848966,
+        "narHash": "sha256-7gDpu5hpq0rOYnYMcOWqSzquK4HA/xU8Xf3CjUBOOJA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "bd0ff2d3eac24699c3664d5966b9ef36f388e2ca",
+        "rev": "d57af924f160a5084293c71c2043f058bd1cdb60",
         "type": "github"
       },
       "original": {
@@ -232,10 +285,12 @@
     },
     "root": {
       "inputs": {
+        "asahi-linux-fairydust": "asahi-linux-fairydust",
         "home-manager": "home-manager",
         "niri-flake": "niri-flake",
         "nix-darwin": "nix-darwin",
         "nix-unstable": "nix-unstable",
+        "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
         "plasma-manager": "plasma-manager"

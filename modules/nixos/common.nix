@@ -75,8 +75,8 @@
       net-tools
       yazi # CLI file manager
       # GUI applications
-      google-chrome
       firefox
+      google-chrome
       ####
       asdf-vm
       # dockers

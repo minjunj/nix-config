@@ -5,6 +5,14 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nix-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-apple-silicon = {
+      url = "github:nix-community/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    asahi-linux-fairydust = {
+      url = "github:AsahiLinux/linux/fairydust";
+      flake = false;
+    };
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-26.05";
@@ -40,6 +48,29 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    linuxSystems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    forAllLinuxSystems = nixpkgs.lib.genAttrs linuxSystems;
+    fairydustKernelOverlay = final: prev: {
+      linux-asahi = prev.linux-asahi.override {
+        callPackage = f: args:
+          final.callPackage f (args
+            // {
+              buildLinux = kernelArgs:
+                final.buildLinux (kernelArgs
+                  // {
+                    version = "7.1.6";
+                    modDirVersion = "7.1.6";
+                  });
+              fetchFromGitHub = fetchArgs:
+                if (fetchArgs.owner or null) == "AsahiLinux" && (fetchArgs.repo or null) == "linux"
+                then inputs.asahi-linux-fairydust
+                else final.fetchFromGitHub fetchArgs;
+            });
+      };
+    };
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#hostname'
@@ -54,7 +85,50 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/desktop/configuration.nix];
       };
+      macbook = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/macbook/configuration.nix
+          {
+            nixpkgs.overlays = [
+              inputs.nixos-apple-silicon.overlays.default
+              fairydustKernelOverlay
+            ];
+          }
+        ];
+      };
     };
+
+    packages = forAllLinuxSystems (
+      system: {
+        macbook-installer =
+          (nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              inherit inputs outputs;
+              modulesPath = "${nixpkgs}/nixos/modules";
+            };
+            modules = [
+              inputs.nixos-apple-silicon.nixosModules.apple-silicon-installer
+              ./hosts/macbook/installer.nix
+              {
+                hardware.asahi.pkgsSystem = system;
+                nixpkgs.hostPlatform.system = "aarch64-linux";
+                nixpkgs.buildPlatform.system = system;
+                nixpkgs.overlays = [
+                  inputs.nixos-apple-silicon.overlays.default
+                  fairydustKernelOverlay
+                ];
+              }
+            ];
+          })
+          .config
+          .system
+          .build
+          .isoImage;
+      }
+    );
 
     # nix-darwin configuration entrypoint
     # Available through 'darwin-rebuild --flake .#hostname'

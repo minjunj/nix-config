@@ -21,7 +21,7 @@
   networking.hostName = "nuc_n100";
   networking.networkmanager.enable = true;
 
-  my.nas.credentialsFile = "/home/nuc_n100/nix-config/secrets/smb-secret";
+  my.nas.accountName = "nuc_n100";
 
   # Headless host: SSH/TTY only, no display manager or desktop environment.
   systemd.defaultUnit = "multi-user.target";

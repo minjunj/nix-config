@@ -42,6 +42,8 @@ in {
         g-d = "git diff";
         gpl = "git pull origin";
 
+        codex-d = "codex --sandbox read-only --ask-for-approval on-request";
+
         # NixOS specific
         rebuild = "sudo nixos-rebuild switch --flake";
         update = "nix flake update";
